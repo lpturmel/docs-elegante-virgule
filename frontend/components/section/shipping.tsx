@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import AccordeonSection from "../AccordeonSection";
 import AccordeonItem from "../AccordeonItem";
 import { FiPackage } from "react-icons/fi";
+import Divider from "../Divider";
 
 const Shipping: FunctionComponent = () => {
     return (
@@ -16,6 +17,7 @@ const Shipping: FunctionComponent = () => {
                     very high volumes of orders. So our delay is now extended to
                     6 to 8 business days to ship.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Which carriers are you using to ship?">
                     Most Canadian orders are shipped with Canada Post. For US
                     and international, we work with{" "}
@@ -30,6 +32,7 @@ const Shipping: FunctionComponent = () => {
                     who partners with USPS for the USA and Asendia for
                     International destinations.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="I have an emergency, so I need my order quickly. What are my options?">
                     You can upgrade your shipping option at checkout before
                     paying, As our Flat rate is the most economical option,
@@ -45,6 +48,7 @@ const Shipping: FunctionComponent = () => {
                     </a>{" "}
                     with your order number and we will try to help.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Is your packaging ecofriendly?">
                     Yes we are proud of the way we ship. We exclusively use 100%
                     recyclable or 100% compostable supply. Usually from 100%
@@ -58,6 +62,7 @@ const Shipping: FunctionComponent = () => {
                         Shipping page.{" "}
                     </a>
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Once shipped, how long does it take before I get my package?">
                     <p>
                         {" "}

@@ -17,7 +17,7 @@ const AccordeonSection: FunctionComponent<AccordeonSectionProps> = ({
                 <p className="font-semibold text-2xl">{title}</p>
             </div>
 
-            <div className="flex flex-col overflow-hidden rounded-lg border-r-[1px] border-l-[1px] border-t-[1px] border-border-accent">
+            <div className="flex flex-col overflow-hidden rounded-lg border-[1px] border-border-accent">
                 {children}
             </div>
         </div>

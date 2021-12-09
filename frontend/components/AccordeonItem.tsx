@@ -1,6 +1,5 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import { IoAdd } from "react-icons/io5";
-
 export interface AccordeonItemProps {
     question: string;
 }
@@ -32,9 +31,10 @@ const AccordeonItem: FunctionComponent<AccordeonItemProps> = ({
         console.log("Sending new height: ", newHeight);
         parent.postMessage(newHeight, "*");
     }, [open]);
+
     return (
         <details
-            className={`${renderBgColor()} transition-colors duration-200 vstack justify-start items-center border-border-accent border-b-[1px]`}
+            className={`${renderBgColor()} transition-colors duration-200 vstack justify-start items-center`}
         >
             <summary
                 onMouseEnter={() => setHover(true)}

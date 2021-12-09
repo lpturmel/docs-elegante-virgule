@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import AccordeonSection from "../AccordeonSection";
 import AccordeonItem from "../AccordeonItem";
 import { FiAlertOctagon } from "react-icons/fi";
+import Divider from "../Divider";
 
 const Returns: FunctionComponent = () => {
     return (
@@ -20,6 +21,7 @@ const Returns: FunctionComponent = () => {
                     cost of the return: processing your order, receiving and
                     processing your return, adding return to inventory.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="I changed my mind, can I cancel my order or my preorder?">
                     Unfortunately we cannot offer cancellations on pre-orders as
                     we place orders from the manufacturers based on pre-order
@@ -27,6 +29,7 @@ const Returns: FunctionComponent = () => {
                     and cut the fabric as soon as possible when we get the
                     orders so we cannot cancel orders either. Please contact us.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I add Pre-order items to my regular order?">
                     If you order Pre-order items with in stock items, all items
                     will be held and shipped together, please order separately

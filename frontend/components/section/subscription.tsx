@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import AccordeonSection from "../AccordeonSection";
 import AccordeonItem from "../AccordeonItem";
 import { FiClock } from "react-icons/fi";
+import Divider from "../Divider";
 
 export interface SubscriptionProps {}
 
@@ -17,6 +18,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     RIFLE PAPER CO products. But in the near future, there will
                     be subscriptions for TILDA and MADRAS Fabrics.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="When do you ship the monthly packages?">
                     Due to the large number of subscribers, the shipping of the
                     packages takes several days : For the LIBERTY Rainbow Club,
@@ -24,6 +26,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     RIFLE PAPER CO Club, we ship between the 10th and the 30th
                     each month.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I cancel my subscription at anytime?">
                     Sure. Your subscription can be cancelled anytime by updating
                     it on the Customer Portal. Your cancelation will take effect
@@ -36,6 +39,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     receive your month package for the last time. And you will
                     not be billed for the next billing period,
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="I am a new customer, Can I subscribe anytime?">
                     No. The subscription period is limited for only a few days
                     when we open it, as places are limited for each plan. You
@@ -51,12 +55,14 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     to get notified as soon as the subscription is available
                     again.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Do I have to create another account to subscribe?">
                     Yes. The database for the subscriptions is not the same as
                     the shop main customer database. You will need to create an
                     account through the Customer subscription Portal once the
                     subscription period is active.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I change my plan later on?">
                     Absolutely! You can cancel your current plan and choose
                     another one (bigger or smaller plan). The change will take
@@ -64,18 +70,22 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     access the Customer Portal is in the email you received when
                     you first subscribed.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Will you renew my subscription automatically?">
                     Yes, your subscription will be automatically renewed
                     according to your pay period.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Do you offer any discounts?">
                     Yes! We occasionally offer discounts. Please subscribe to
                     our newsletter or follow us on instagram to get updates
                     about our discounts and coupons.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I request a refund?">
                     No. But you can cancel your subscription to stop payments.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Where can I leave my email in order to be notified once the subscriptions are open?">
                     You can leave your name{" "}
                     <a

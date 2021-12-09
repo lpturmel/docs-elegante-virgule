@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import AccordeonSection from "../AccordeonSection";
 import AccordeonItem from "../AccordeonItem";
 import { FiCalendar } from "react-icons/fi";
+import Divider from "../Divider";
 
 const Preorders: FunctionComponent = () => {
     return (
@@ -16,11 +17,13 @@ const Preorders: FunctionComponent = () => {
                     front for pre-orders and will ship as soon as we receive the
                     goods.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I cancel my preorder?">
                     Unfortunately we cannot offer cancellations on pre-orders as
                     we place orders from the manufacturers based on pre-order
                     sales.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="Can I add Pre-order items to my regular order?">
                     If you order Pre-order items with in stock items, all items
                     will be held and shipped together, please order separately
