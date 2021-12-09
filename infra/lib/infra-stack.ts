@@ -13,7 +13,7 @@ export class InfraStack extends Stack {
         super(scope, id, props);
 
         const PIPELINE_NAME = "elegante-virgule-pipeline";
-        const S3_BUCKET_NAME = "elegantevirgule-faq";
+        const S3_BUCKET_NAME = "elegantevirgule-test";
 
         const targetBucket = Bucket.fromBucketName(
             this,
@@ -30,7 +30,6 @@ export class InfraStack extends Stack {
         } else {
             const sourceOutput = new codepipeline.Artifact();
             const frontendBuildOutput = new codepipeline.Artifact();
-            const cdkBuildOutput = new codepipeline.Artifact();
             new codepipeline.Pipeline(this, "Pipeline", {
                 pipelineName: PIPELINE_NAME,
                 stages: [
@@ -56,26 +55,32 @@ export class InfraStack extends Stack {
                         actions: [
                             new cpactions.CodeBuildAction({
                                 actionName: "Build_Frontend",
-
                                 input: sourceOutput,
                                 project: new codebuild.PipelineProject(
                                     this,
                                     "NextBuildExport",
                                     {
+                                        environment: {
+                                            buildImage:
+                                                codebuild.LinuxBuildImage.fromCodeBuildImageId(
+                                                    "aws/codebuild/standard:5.0"
+                                                ),
+                                        },
                                         buildSpec:
                                             codebuild.BuildSpec.fromObject({
                                                 version: "0.2",
 
                                                 phases: {
-                                                    pre_build: {
-                                                        nodejs: "14",
+                                                    install: {
+                                                        "runtime-versions": {
+                                                            nodejs: "14",
+                                                        },
                                                         commands: [
                                                             "cd frontend",
                                                             "npm install",
                                                         ],
                                                     },
                                                     build: {
-                                                        nodejs: "14",
                                                         commands: [
                                                             "npm run build", // or whatever other process you use for the SPA build...
                                                             "npm run export",
@@ -92,57 +97,11 @@ export class InfraStack extends Stack {
                                 ),
                                 outputs: [frontendBuildOutput],
                             }),
-                            new cpactions.CodeBuildAction({
-                                actionName: "Build_CDK",
-                                input: sourceOutput,
-                                project: new codebuild.PipelineProject(
-                                    this,
-                                    "CdkBuild",
-                                    {
-                                        buildSpec:
-                                            codebuild.BuildSpec.fromObject({
-                                                version: "0.2",
-                                                phases: {
-                                                    pre_build: {
-                                                        nodejs: "14",
-                                                        commands: [
-                                                            "cd infra",
-                                                            "npm install",
-                                                        ],
-                                                    },
-                                                    build: {
-                                                        nodejs: "14",
-                                                        commands: [
-                                                            "npm run build",
-                                                            "npm run cdk synth InfraStack",
-                                                        ],
-                                                    },
-                                                },
-                                                artifacts: {
-                                                    "base-directory":
-                                                        "infra/cdk.out",
-                                                    files: "*",
-                                                },
-                                            }),
-                                    }
-                                ),
-                                outputs: [cdkBuildOutput],
-                            }),
                         ],
                     },
                     {
                         stageName: "Deploy",
                         actions: [
-                            new cpactions.CloudFormationCreateUpdateStackAction(
-                                {
-                                    actionName: "CFN_Deploy",
-                                    adminPermissions: true,
-                                    stackName: "InfraStack",
-                                    templatePath: cdkBuildOutput.atPath(
-                                        "InfraStack.template.json"
-                                    ),
-                                }
-                            ),
                             new cpactions.S3DeployAction({
                                 actionName: "S3_Deploy",
                                 bucket: targetBucket,
