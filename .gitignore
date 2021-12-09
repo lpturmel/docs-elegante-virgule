@@ -3,7 +3,6 @@ build
 dist
 .DS_Store
 .env.*
-*.js
 !jest.config.js
 *.d.ts
 node_modules
