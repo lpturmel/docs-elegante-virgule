@@ -1,13 +1,13 @@
 out
 build
 dist
-
+.DS_Store
 .env.*
 *.js
 !jest.config.js
 *.d.ts
 node_modules
-
+.next
 # CDK asset staging directory
 .cdk.staging
 cdk.out
