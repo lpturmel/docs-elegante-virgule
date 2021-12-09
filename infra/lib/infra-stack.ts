@@ -3,7 +3,7 @@ import { Stack, StackProps, Construct, SecretValue } from "@aws-cdk/core";
 import * as s3Deploy from "@aws-cdk/aws-s3-deployment";
 import * as codebuild from "@aws-cdk/aws-codebuild";
 import * as cpactions from "@aws-cdk/aws-codepipeline-actions";
-import { Bucket } from "@aws-cdk/aws-s3";
+import { Bucket, BucketAccessControl } from "@aws-cdk/aws-s3";
 
 interface CustomStackProps extends StackProps {
     local: boolean;
@@ -26,6 +26,7 @@ export class InfraStack extends Stack {
             new s3Deploy.BucketDeployment(this, "BucketDeployment", {
                 sources: [source],
                 destinationBucket: targetBucket,
+                accessControl: BucketAccessControl.PUBLIC_READ,
             });
         } else {
             const sourceOutput = new codepipeline.Artifact();
@@ -107,6 +108,7 @@ export class InfraStack extends Stack {
                                 bucket: targetBucket,
                                 input: frontendBuildOutput,
                                 runOrder: 2,
+                                accessControl: BucketAccessControl.PUBLIC_READ,
                             }),
                         ],
                     },
