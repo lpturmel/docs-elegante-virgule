@@ -44,7 +44,7 @@ export class InfraStack extends Stack {
                                     SecretValue.secretsManager(
                                         "ev-github-token"
                                     ),
-                                branch: "main",
+                                branch: "master",
                                 repo: "docs-elegante-virgule",
                                 owner: "lpturmel",
                                 output: sourceOutput,
@@ -56,6 +56,7 @@ export class InfraStack extends Stack {
                         actions: [
                             new cpactions.CodeBuildAction({
                                 actionName: "Build_Frontend",
+
                                 input: sourceOutput,
                                 project: new codebuild.PipelineProject(
                                     this,
@@ -64,14 +65,17 @@ export class InfraStack extends Stack {
                                         buildSpec:
                                             codebuild.BuildSpec.fromObject({
                                                 version: "0.2",
+
                                                 phases: {
                                                     pre_build: {
+                                                        nodejs: "14",
                                                         commands: [
                                                             "cd frontend",
                                                             "npm install",
                                                         ],
                                                     },
                                                     build: {
+                                                        nodejs: "14",
                                                         commands: [
                                                             "npm run build", // or whatever other process you use for the SPA build...
                                                             "npm run export",
@@ -100,12 +104,14 @@ export class InfraStack extends Stack {
                                                 version: "0.2",
                                                 phases: {
                                                     pre_build: {
+                                                        nodejs: "14",
                                                         commands: [
-                                                            "cd cdk",
+                                                            "cd infra",
                                                             "npm install",
                                                         ],
                                                     },
                                                     build: {
+                                                        nodejs: "14",
                                                         commands: [
                                                             "npm run build",
                                                             "npm run cdk synth InfraStack",
