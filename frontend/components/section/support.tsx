@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import AccordeonSection from "../AccordeonSection";
 import AccordeonItem from "../AccordeonItem";
 import { FiLifeBuoy } from "react-icons/fi";
+import Divider from "../Divider";
 
 const Support: FunctionComponent = () => {
     return (
@@ -16,6 +17,7 @@ const Support: FunctionComponent = () => {
                     to resolve any issues you may encounter while using our
                     website.
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="How can I get any help?">
                     <p>
                         We value our clients and you can always feel free to
@@ -53,10 +55,12 @@ const Support: FunctionComponent = () => {
                         </li>
                     </ul>
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="I already placed an order but I would like to make changes">
                     No problem. Please contact us as soon as possible with your
                     order number (see previous question)
                 </AccordeonItem>
+                <Divider />
                 <AccordeonItem question="I haven't found the responses to my question in the FAQ section">
                     Please{" "}
                     <a
