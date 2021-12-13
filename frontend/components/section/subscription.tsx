@@ -14,8 +14,8 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                 icon={<FiClock className="w-6 h-6" />}
             >
                 <AccordeonItem question="What kind of subscriptions are available?">
-                    We currently offer subscriptions for LIBERTY Fabrics and
-                    RIFLE PAPER CO products. But in the near future, there will
+                    We currently offer subscriptions for LIBERTY Fabrics,
+                     RIFLE PAPER CO products and TILDA Fabrics. But in the near future, there will
                     be subscriptions for TILDA and MADRAS Fabrics.
                 </AccordeonItem>
                 <Divider />
