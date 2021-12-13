@@ -16,7 +16,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                 <AccordeonItem question="What kind of subscriptions are available?">
                     We currently offer subscriptions for LIBERTY Fabrics,
                      RIFLE PAPER CO products and TILDA Fabrics. But in the near future, there will
-                    be subscriptions for TILDA and MADRAS Fabrics.
+                    be subscriptions for MADRAS Fabrics and Project Clubs.
                 </AccordeonItem>
                 <Divider />
                 <AccordeonItem question="When do you ship the monthly packages?">
