@@ -34,7 +34,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                     have a LIBERTY Rainbow subscription for which the payment
                     occurs on the 10th each month. If you cancel your
                     subscription before the 10th, you will not be billed on the
-                    next billing period. But if you cancel after the 10th (let's
+                    next  billing period. But if you cancel after the 10th (let's
                     say the 15th), since you have already been billed, you will
                     receive your month package for the last time. And you will
                     not be billed for the next billing period,
