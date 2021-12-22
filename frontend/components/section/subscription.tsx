@@ -21,7 +21,7 @@ const Subscription: FunctionComponent<SubscriptionProps> = () => {
                 <Divider />
                 <AccordeonItem question="When do you ship the monthly packages?">
                     Due to the large number of subscribers, the shipping of the
-                    packages takes several days : For the LIBERTY Rainbow Club,
+                    packages takes several days : For the LIBERTY Rainbow Club and the TILDA Club,
                     we ship between the 15th and the 30th each month. For the
                     RIFLE PAPER CO Club, we ship between the 10th and the 30th
                     each month.
